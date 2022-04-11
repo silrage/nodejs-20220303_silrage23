@@ -1,7 +1,7 @@
-const Category = require('../models/Category');
-const mapCategory = require('../mappers/category');
+const modelCategory = require('../models/Category.js');
+const mapperCategory = require('../mappers/category.js');
 
 module.exports.categoryList = async function categoryList(ctx, next) {
-  const categories = await Category.find();
-  ctx.body = {categories: categories.map(mapCategory)};
+  const model = await modelCategory.find();
+  ctx.body = {categories: model.map(mapperCategory)};
 };
